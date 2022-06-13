@@ -1,0 +1,56 @@
+ul, li {
+    list-style: none;
+    margin:0 ;
+    padding: 5px 20px;
+  }
+  
+  ul.root-level {
+    padding: 0;
+    margin: 2em 0;
+  }
+  
+  .expando {
+    width: 1em;
+    display: inline-block;
+    transition: all 0.05s linear;
+    cursor: pointer;
+    user-select: none;
+    transform: scale(0.7);
+  }
+  .expando.expanded {
+    transform: scale(0.7) translateX(-2px) rotate(0.25turn);
+  }
+  
+  .found > .badge {
+    background-color: orange;
+  }
+  
+  .debug {
+    color: #af8029;
+    padding: 0 0.5em
+  }
+  
+  header {
+    margin: 1em 0;
+  }
+
+  .orangeapply{
+    background-color: orange;
+    color: white;
+    padding: 5px;
+  }
+
+  .tab-tree{
+    margin: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 500px;
+}
+
+.tab{
+  margin: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}

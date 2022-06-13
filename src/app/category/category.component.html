@@ -1,0 +1,12 @@
+<h3 mat-dialog-title>Add New Category</h3>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Enter Category Name</mat-label>
+    <input matInput [(ngModel)]="categoryName" required>
+  </mat-form-field>
+  <mat-error *ngIf="categoryName == ''">Please Enter Category</mat-error>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick('No')">Cancel</button>
+  <button mat-button (click)="onNoClick('Yes')" cdkFocusInitial>Ok</button>
+</div>

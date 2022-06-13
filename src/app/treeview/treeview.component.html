@@ -1,0 +1,42 @@
+<div class="tab">
+  <span>
+    Category Tree
+  </span>
+</div>
+
+<div class="tab-tree">
+  <ul class="root-level">
+    <ng-template #recursiveList let-list>
+      <li *ngFor="let item of list; let i = index">
+        <span class="expando" (click)="opened[item.id] = !opened[item.id]" [ngClass]="{'expanded': opened[item.id]}">
+          ▶
+        </span>
+        <div style="visibility: hidden; position: fixed" [style.left]="contextMenuPosition.x"
+          [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+
+        </div>
+        <span [ngClass]="item.status == 1 ? 'orangeapply' : ''"
+          (contextmenu)="onContextMenu($event, item, list)">{{item.name}}</span>
+
+
+        <ng-container *ngIf="opened[item.id]">
+          <ul [ngClass]="item.status == 1 ? 'orangeapply' : ''" *ngIf="item.children && item.children.length">
+            <ng-container *ngTemplateOutlet="recursiveList; context: {$implicit: item.children}"></ng-container>
+          </ul>
+        </ng-container>
+      </li>
+    </ng-template>
+    <ng-container *ngTemplateOutlet="recursiveList; context: {$implicit: list}"></ng-container>
+  </ul>
+
+  <mat-menu #contextMenu="matMenu">
+    <ng-template matMenuContent let-item="item">
+      <button mat-menu-item (click)="addedNewItem(item, 'main_category')">Add new categoty</button>
+      <button mat-menu-item (click)="openDialogSubCategoryCreate(item)">Add new sub categoty</button>
+      <button mat-menu-item (click)="addedNewItem(item ,'edit')">Rename</button>
+      <button mat-menu-item (click)="addedNewItem(item, 'act_deact')">Active/ Deactivate</button>
+    </ng-template>
+  </mat-menu>
+
+
+</div>

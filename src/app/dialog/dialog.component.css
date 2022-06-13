@@ -1,0 +1,13 @@
+.btn-style{
+    padding: 5px;
+    color: white;
+    background-color: gainsboro;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.btn-show{
+    display: grid;
+    grid-template-columns: repeat(2fr);
+    grid-column-gap: 5px;
+}
